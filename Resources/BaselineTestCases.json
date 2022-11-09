@@ -1,0 +1,87 @@
+[
+	{
+		"Product": {
+			"P_Name": "Kathy",
+			"P_Version": "alpha",
+			"P_Owner": "",
+			"P_Type": "",
+			"P_Location": "",
+			"P_Desc": "Test Data",
+			"P_Notes": ""
+		},
+		"System": {
+			"S_window": " ",
+			"S_mac": " ",
+			"S_otherWin": " ",
+			"S_winVrsn": " ",
+			"S_iosVrsn": " ",
+			"S_otherOSChked": "false",
+			"S_otherOSVrsn": " ",
+			"S_otherOSType": " ",
+			"S_osVrsnNo": "",
+			"S_selectedOS": "",
+			"S_ie": " ",
+			"S_chrome": " ",
+			"S_safari": " ",
+			"S_firefox": " ",
+			"S_edge": " ",
+			"S_other": "",
+			"S_ieVrsh": " ",
+			"S_edgVrsn": " ",
+			"S_chrVrsn": " ",
+			"S_sfVrsn": " ",
+			"S_frfxVrsn": " ",
+			"S_othrBrsVrsn": " ",
+			"S_othrBrsType": " ",
+			"S_selectedBrowser": "",
+			"S_selectedBrowserVersions": "",
+			"S_Compatibility": " "
+		},
+		"Tester": {
+			"T_fstnm": "Kathy",
+			"T_lstnm": "Eng",
+			"T_ID": "",
+			"T_companyname": "AB",
+			"T_Role": " ",
+			"T_cntc": "eng@ab.gov",
+			"T_scope": "",
+			"T_eval": "Baseline Alignment Report",
+			"T_evalMthd_Vrsn": "1.0",
+			"crtLength": "0",
+			"T_Date": "Tue Nov 08 2022 18:23:41 GMT-0500 (Eastern Standard Time)"
+		},
+		"Standard": {
+			"Guideline": " ",
+			"Section508": " ",
+			"EN_Accessibility": " "
+		},
+		"FPCMapping": [],
+		"SuccessCriteria": [],
+		"Criteria": [
+			{
+				"TestID": "TC1.2-ic-dna-1",
+            	"Notes": "no components that receive keyboard focus",
+            	"ExpectedResult": "dna",
+            	"OptMenu1": "all"
+       		},
+			{
+				"TestID": "TC2.1-ic-dna-1",
+				"Notes": "no interactive interface components (e.g., text only)",
+				"ExpectedResult": "dna",
+				"OptMenu1": "all"
+			},
+			{
+				"TestID": "TC5.1-2-fail-1",
+				"Notes": "notification provided for change in content, but the accessible name of the changed content is not accurate after the change",
+				"ExpectedResult": "fail",
+				"OptMenu1": "all"
+			},
+			{
+				"TestID": "TC5.1-2-fail-2",
+				"Notes": "notification provided for change in content, but the role of the changed content is not accurate after the change",
+				"ExpectedResult": "fail",
+				"OptMenu1": "all"
+			}
+		]
+	}
+]

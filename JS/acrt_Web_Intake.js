@@ -844,6 +844,7 @@ $scope.optioniosVersn = [{
 ];
 
 
+
    $scope.imgCnvrsn = [];
    $scope.imgCnvrsn2 = [];
    $scope.imgCnvrsnDefault =[];
@@ -1166,14 +1167,13 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 		$scope.counterCollection =[];
 		
 	$scope.origSelectedResults1=$scope.origSelectedResults-1;
-	
+
+
 	$scope.addIssue = function(index) {    	
     // if($scope.selected_name_tstgrp[index] !== undefined){			
 	  $scope.newIssueRsltSelected = false;           
       $scope.counterCollection[index]= index;  
       $scope.menu1[index] = $scope.jsonData[0].Criteria[index].OptMenu1;
-	  $scope.menu1.splice(index, 0, $scope.menu1[index]);
-	  /*
 	   $scope.location[index] = $scope.jsonData[0].Criteria[index].location
 	 $scope.testerCommentID[index] = $scope.jsonData[0].Criteria[index].TesterComment; 
 	 $scope.rmdatnDtlID[index] = $scope.jsonData[0].Criteria[index].RemediationDetails;	
@@ -1184,6 +1184,9 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 	  $scope.rmdatnDtlID.splice(index, 0, $scope.rmdatnDtlID[index]);
 	  $scope.defaultDate.splice(index, 0, $scope.defaultDate[index]);
 	  $scope.default_glblRslt.splice(index, 0, $scope.default_glblRslt[index]);
+
+	  $scope.menu1.splice(index, 0, $scope.menu1[index]);
+	  /*
 	   $scope.default_SelectedResult[index] = $scope.jsonData[0].Criteria[index].TestResult;
 	 $scope.selected_name_tstgrp[index] = $scope.default_SelectedResult[index];			 
 	  $scope.selected_name_tstgrp.splice(index, 0, $scope.selected_name_tstgrp[index]);
@@ -1785,7 +1788,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 	   $scope.default_tstVrsn ='';   
    if($scope.default_tstVrsn == undefined)
 	   $scope.default_tstVrsn ='';   
-      document.getElementById("msg").innerHTML = "<strong>"+$scope.default_evalMethod +" Version "+$scope.default_tstVrsn + " "+$scope.productID+$scope.versionID+".json"+ "</strong> file load completed.<br> To load a different file, <strong>reload</strong> this page.";		  	  
+      document.getElementById("msg").innerHTML = "<strong>"+$scope.default_evalMethod +", Version "+$scope.default_tstVrsn + $scope.productID+$scope.versionID+" JSON"+ "</strong> file load completed.<br> To load a different file, <strong>reload</strong> this page.";		  	  
       alert('File loaded.To save changes at any time, use Alt+S or Save button at bottom of the page.');
 	if($scope.default_tstVrsn == "undefined"  )
 	  $scope.updateJSON = true; 

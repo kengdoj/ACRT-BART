@@ -411,6 +411,8 @@ $scope.countOfRepWords =  function wordFreq(string) {
       //$scope.Guideline = $scope.jsonData[0].Guideline.Guideline;
       //$scope.Section508 = $scope.jsonData[0].Guideline.Section508;
       //$scope.EN_Accessibility = $scope.jsonData[0].Guideline.EN_Accessibility;
+      
+
       $scope.crtID = $scope.jsonData[0].Criteria[0].CrtID;
 	  $scope.titforImg =[];
 	  $scope.altforImg = [];
