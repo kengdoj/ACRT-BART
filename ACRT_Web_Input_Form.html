@@ -347,7 +347,8 @@
     <tr>   
         <th scope="col"><div class="widetd1">Item</div></th> 	 
         <th scope="col" nowrap><div class="widetd5">Test Case ID</div></th>    	
-        <th scope="col" nowrap><div class="widetd3">Test Case Description</div></th>    
+        <th scope="col" nowrap><div class="widetd3">Test Case Description</div></th>
+        <th scope="col" nowrap><div class="widetd3">Test File</div></th>
         <th scope="col"><div class="widetd3">Expected Test Result</div></th>
         <th scope="col" nowrap><div class="widetd3">Test Process's Result</div></th>
         <th scope="col" nowrap><div class="widetd3">Tester Comments</div></th> 
@@ -357,8 +358,9 @@
   <tbody ng-repeat="record in jsonData">
     <tr ng-repeat="test in record.Criteria" >
       <th scope="row"><div class="widetd1"> {{$index+1}} </div>  <!-- ng-if='original' --></th>
-      <td><div class="widetd5" id="testID{{$index}}" title="Test ID" nowrap> {{test.TestID}} </div> </td>
+      <td><div class="widetd5" id="testID{{$index}}" title="Test ID" nowrap><a href="{{test.TestCaseURL}}" target="testcase">{{test.TestID}}</a> </div> </td>
       <td><div class="widetd3">{{test.Notes}}</div></td>
+      <td><div class="widetd3"><a href="{{test.TestFileURL}}" target="testfile">{{test.TestFile}}</a></div></td>
       <td nowrap><div class="widetd3">{{test.ExpectedResult}}</div></td>
       <td name="Test Process Result"> <div class="widetd3">
         <!-- This is the default for the BART results, options are in acrt_Web_Intake.js  -->
