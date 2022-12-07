@@ -681,7 +681,7 @@ article {
 .widetd1{    
     width: 96px;	
 	display: inline-block;
-	font-weight: normal;
+	/* font-weight: normal; */
 	font-stretch: condensed;
 	font-size: 90%;
 	vertical-align: top;
