@@ -1,10 +1,14 @@
-# ACRT 3.0.2
+# BART 
 # Project Title
-**Accessibility Conformance Reporting Tool (ACRT)** 
+**Baseline Alignement Reporting Tool (BART)** 
 
-ACRT is a browser-based standalone application for recording accessibility test results from Trusted Testers. All input data will be stored as JSON &/or html files in the local machine which can be shared as needed. Information in the JSON file can be further manipulated for analytics and reporting purposes as needed. 
+BART is a browser-based standalone application for recording Baseline for Web Alignment Framework test results. All input data will be stored as JSON &/or html files in the local machine which can be shared as needed. Information in the JSON file can be further manipulated for analytics and reporting purposes as needed. 
 
-## Getting Started
+BART was developed by modifying the Department of Homeland Security's Accessibility Conformance Reporting Tool (ACRT).
+
+BART is in development and further instructions will be provided.
+
+<!-- ## Getting Started
 1) Download the ACRT files to your local machine from the repository. The default location is the Downloads folder. On the [main page](https://github.com/Section508Coordinators/ACRT), select the Code button above and select "Download ZIP". Once downloaded, unzip/extract files. 
 2) Refer to the [ACRT Training Manual](https://github.com/Section508Coordinators/ACRT/blob/master/Resources/ACRTTrainingManual.pdf ) in the 'Resources' folder for detailed instructions. 
 
@@ -37,3 +41,4 @@ You can access the latest version at [ACRTGitHubRepository](https://github.com/S
 
 This project is licensed under the MIT License - see the (LICENSE.md) file for details
 
+ -->

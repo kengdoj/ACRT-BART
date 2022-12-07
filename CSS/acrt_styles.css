@@ -525,9 +525,9 @@ h2,h3,h4 {font-weight: bold;
 }
 
 /*
-txtarea{
+txtarea
     margin-top: 20px;
-    /*width: 500px;*/
+    
 	height: 75px;   
 	padding: 5px;
 	overflow-y: scroll;
