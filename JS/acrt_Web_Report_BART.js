@@ -364,6 +364,13 @@ $scope.countOfRepWords =  function wordFreq(string) {
       $scope.IssueNo = [];
       $scope.TestResult = [];
       $scope.TesterComment = [];
+    // KE: For BART
+      $scope.ExpectedResult =[];
+    $scope.TestCaseURL=[];
+    $scope.TestFile=[];
+    $scope.TestFileURL=[];
+    $scope.Aligned=[];
+
 	  $scope.location = [];
       $scope.T_brwsrType = [];
       $scope.T_brwsrVrsn = [];
@@ -411,6 +418,8 @@ $scope.countOfRepWords =  function wordFreq(string) {
       //$scope.Guideline = $scope.jsonData[0].Guideline.Guideline;
       //$scope.Section508 = $scope.jsonData[0].Guideline.Section508;
       //$scope.EN_Accessibility = $scope.jsonData[0].Guideline.EN_Accessibility;
+      
+
       $scope.crtID = $scope.jsonData[0].Criteria[0].CrtID;
 	  $scope.titforImg =[];
 	  $scope.altforImg = [];
@@ -627,7 +636,7 @@ document.getElementById("dsblGrpBtn").click();
 	  
 	  
 	  
-	  if($scope.DisabilityImpactCollection.length >0){
+	  /* if($scope.DisabilityImpactCollection.length >0){
 	  $scope.DisabilityImpactCollectionLength = true;
 	  $scope.DisabilityImpactCollection = $scope.DisabilityImpactCollectionString; 
 	  if($scope.isDraft == true)
@@ -639,7 +648,7 @@ document.getElementById("dsblGrpBtn").click();
 	  $scope.DisabilityImpactCollection = 'No One Impacted'; 
 	  if($scope.isDraft == true)
 	 $scope.DisabilityImpactCollection = $scope.DisabilityImpactCollection + '  - Select all  test results to get accurate impacted group';
-	  }
+	  } */
 	  	 
 	  	
 	 /* commented out because we dont want to display duplicate groups based on failed test conditions

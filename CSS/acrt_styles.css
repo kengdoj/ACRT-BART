@@ -537,12 +537,12 @@ txtarea
 */
 
 .txtarea{
-    margin-top: 20px;
+    /* margin-top: 20px; */
     /*width: 500px;*/
 	height: 75px;   
 	padding: 5px;
 	overflow-y: scroll;
-	 
+	vertical-align: top;
 	overflow: scroll; 
 	resize: none;
 	word-wrap: break-word;
@@ -679,7 +679,7 @@ article {
 }
 
 .widetd1{    
-    width: 96px;	
+    width: 36px;	
 	display: inline-block;
 	/* font-weight: normal; */
 	font-stretch: condensed;
@@ -693,7 +693,7 @@ article {
 	display: inline-block;	
 }
 .widetd3{    
-    width: 200px;	
+    width: 150px;	
 	display: inline-block;	
 }
 .widetd4{    

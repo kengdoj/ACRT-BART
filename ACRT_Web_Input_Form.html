@@ -3,12 +3,12 @@
    
 <head>
   <meta charset="UTF-8">
-  <title>Create Report - Baseline Alignement Reporting Tool</title>
+  <title>Create Report - BART</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
 <meta name="description" content="Great Tool to track test results" />
   <link rel="stylesheet" type="text/css" href="./CSS/acrt_styles.css">     
-    <script src="./JS/AngularJS1.6.9/angular.min.js"></script>
-    <script src = "./JS/FileSaver.min.js"> </script> 
+    <script src="JS/AngularJS1.6.9/angular.js"></script>
+    <script src = "JS/FileSaver.js"> </script> 
 
 </head>
 <body ng-app="acrtWebIntake"  id="acrtBody">
@@ -351,7 +351,7 @@
         <th scope="col" nowrap><div class="widetd3">Test File</div></th>
         <th scope="col"><div class="widetd3">Expected Test Result</div></th>
         <th scope="col" nowrap><div class="widetd3">Test Process's Result</div></th>
-        <th scope="col" nowrap><div class="widetd3">Tester Comments</div></th> 
+        <th scope="col" nowrap><div class="widetd8">Tester Comments</div></th> 
     </tr>  
   </thead>
   
@@ -359,7 +359,7 @@
     <tr ng-repeat="test in record.Criteria" >
       <th scope="row"><div class="widetd1"> {{$index+1}} </div>  <!-- ng-if='original' --></th>
       <td><div class="widetd5" id="testID{{$index}}" title="Test ID" nowrap><a href="{{test.TestCaseURL}}" target="testcase">{{test.TestID}}</a> </div> </td>
-      <td><div class="widetd3">{{test.Notes}}</div></td>
+      <td><div class="widetd3" id="testcondition{{$index}}">{{test.TestCondition}}</div></td>
       <td><div class="widetd3"><a href="{{test.TestFileURL}}" target="testfile">{{test.TestFile}}</a></div></td>
       <td nowrap><div class="widetd3">{{test.ExpectedResult}}</div></td>
       <td name="Test Process Result"> <div class="widetd3">
@@ -373,11 +373,12 @@
             <option value="" selected disabled hidden>{{default_SelectedResult[$index]}}</option> </select> 	  
         </span></div>
       </td>
-      <td> <div class="widetd3"> <textarea  rows="4" cols="25" type="text" ng-model="testerCommentID[$index]" class="txtarea" ng-maxlength="1000" title="Tester's Comment, 1000 chars max" limit-to="1000"> </textarea> </div> </td>
+      <td> <div class="widetd8"> <textarea  rows="4" cols="35" type="text" ng-model="testerCommentID[$index]" class="txtarea" ng-maxlength="1000" title="Tester's Comment, 1000 chars max" limit-to="1000">{{test.TesterComment}} </textarea> </div> </td>
     </tr>
   </tbody>
 </table>
 </div>
+
 
 <!-- END RESULTS TABLE (338-762) -->
 
