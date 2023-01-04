@@ -1177,7 +1177,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 
 	$scope.origSelectedResults1=$scope.origSelectedResults-1;
 
-// KE: don't need this 
+// KE: BART doesn't allow adding rows; don'tneed this 
 	$scope.addIssue = function(index) {    	
     // if($scope.selected_name_tstgrp[index] !== undefined){			
     $scope.insertRoww = []; 
@@ -1997,7 +1997,7 @@ $scope.remarkExplanation = function(i) {
   
 // KE: For BART - output is correct, but .TestCondition in line 2496 causes a failure in the IsJsonString function
    //alert("test condition [6] is " + $scope.TestCondition[6]);
- alert("test condition [i" + i + "] is " + $scope.criteriaTestsJson.Criteria[i].TestCondition);
+//  alert("test condition [i" + i + "] is " + $scope.criteriaTestsJson.Criteria[i].TestName);
 
 };
 $scope.uploadImageClicked1 = false; 
@@ -2495,10 +2495,9 @@ $scope.submit = function() {
 
     // KE: BART JSON output when file is saved
     $scope.testresult[i] = '{      "XCrtID": "' + $scope.criteriaTestsJson.Criteria[i].CrtID + '",' + 
-    '"TestName": "' + $scope.criteriaTestsJson.Criteria[i].TestName + '",' + 
     '"TestID": "' + $scope.criteriaTestsJson.Criteria[i].TestID + '",' + 
     '"TestCaseURL": "' + $scope.criteriaTestsJson.Criteria[i].TestCaseURL + '",' + 
-    '"TestCondition": "Test Condition not loading - ' + $scope.criteriaTestsJson.Criteria[i].TestID + '",' + 
+    '"TestName": "' + $scope.criteriaTestsJson.Criteria[i].TestName + '",' + 
     '"ExpectedResult": "' + $scope.criteriaTestsJson.Criteria[i].ExpectedResult + '",' + 
     '"IssueNo": "' + i + '",' + 
     '"TestResult": "' + $scope.selected_name_tstgrp[i] + '",' + 
@@ -2777,7 +2776,7 @@ $scope.submit = function() {
     $scope.fpcMapping.push(fpcMapping);		
 	 }	
 	 
-   $scope.testresult2[k] = '{"CrtID": "' + $scope.criteriaTestsJson.Criteria[i].CrtID +'",' +'"DisabilityImpact": "' + $scope.criteriaTestsJson.Criteria[i].DisabilityImpact+'","Guideline": "' + $scope.criteriaTestsJson.Criteria[i].Guideline + '",' + '"Test": "' + '*'+$scope.criteriaTestsJson.Criteria[i].Test + '",' + '"TestName": "' + '*'+$scope.criteriaTestsJson.Criteria[i].TestName + '",' + '"TestID": "' + $scope.criteriaTestsJson.Criteria[i].TestID + '",' + '"TestCondition": "' + '*'+$scope.criteriaTestsJson.Criteria[i].TestCondition + '",' + '"IssueNo": "' + $scope.newlyAddedIssuePosition[k]+ '","TestResult": "' + $scope.selected_name_tstgrp1[k]  +  '","TesterComment": "' + $scope.testerCommentID1[k] + '","T_brwsrType": "' + $scope.browserTypeCollection11[k] + '","T_brwsrVrsn": "' + $scope.browserVersionsCollection11[k] +  '","GlobalIssue": "' + $scope.selected_name_glbl1[k] + '","RemediationDate": "' + $scope.rmdatnDatelIDCollection1[k] +'","RemediationDetails": "' + $scope.rmdatnDtlID1[k]+'","AddedIssue": "' + true + '","Counter": "' +$scope.newlyAddedIssuePosition[k] + '","ImageSrc":".';
+   /* $scope.testresult2[k] = '{"CrtID": "' + $scope.criteriaTestsJson.Criteria[i].CrtID +'",' +'"DisabilityImpact": "' + $scope.criteriaTestsJson.Criteria[i].DisabilityImpact+'","Guideline": "' + $scope.criteriaTestsJson.Criteria[i].Guideline + '",' + '"Test": "' + '*'+$scope.criteriaTestsJson.Criteria[i].Test + '",' + '"TestName": "' + '*'+$scope.criteriaTestsJson.Criteria[i].TestName + '",' + '"TestID": "' + $scope.criteriaTestsJson.Criteria[i].TestID + '",' + '"TestCondition": "' + '*'+$scope.criteriaTestsJson.Criteria[i].TestCondition + '",' + '"IssueNo": "' + $scope.newlyAddedIssuePosition[k]+ '","TestResult": "' + $scope.selected_name_tstgrp1[k]  +  '","TesterComment": "' + $scope.testerCommentID1[k] + '","T_brwsrType": "' + $scope.browserTypeCollection11[k] + '","T_brwsrVrsn": "' + $scope.browserVersionsCollection11[k] +  '","GlobalIssue": "' + $scope.selected_name_glbl1[k] + '","RemediationDate": "' + $scope.rmdatnDatelIDCollection1[k] +'","RemediationDetails": "' + $scope.rmdatnDtlID1[k]+'","AddedIssue": "' + true + '","Counter": "' +$scope.newlyAddedIssuePosition[k] + '","ImageSrc":".'; */
  	  
 	 for(let p=0;p<$scope.imgCnvrsnJSON1.length;p++){   
 	

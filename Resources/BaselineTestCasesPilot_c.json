@@ -60,7 +60,7 @@
     "Criteria": [
       {
         "TestID": "TC6.3-1-fail-1",
-        "TestCondition": "empty text alternative for CAPTCHA",
+        "TestName": "empty text alternative for CAPTCHA",
         "ExpectedResult": "fail",
         "FixTCNo": "TC06.3-1-fail-1",
         "TestCaseURL": "https://section508coordinators.github.io/baselinealignment/testcases/TC06.3-1-fail-1.html",
@@ -72,7 +72,7 @@
       },
       {
         "TestID": "TC6.3-2-fail-1",
-        "TestCondition": "non-empty text alternative, but does not identify or describe the purpose of the CAPTCHA",
+        "TestName": "non-empty text alternative, but does not identify or describe the purpose of the CAPTCHA",
         "ExpectedResult": "fail",
         "FixTCNo": "TC06.3-2-fail-1",
         "TestCaseURL": "https://section508coordinators.github.io/baselinealignment/testcases/TC06.3-2-fail-1.html",
@@ -84,7 +84,7 @@
       },
       {
         "TestID": "TC10.1-all-pass-1",
-        "TestCondition": "input text element with accessible name in placeholder attribute (old TC10-002-pass)",
+        "TestName": "input text element with accessible name in placeholder attribute (old TC10-002-pass)",
         "ExpectedResult": "pass",
         "FixTCNo": "TC10.1-all-pass-1",
         "TestCaseURL": "https://section508coordinators.github.io/baselinealignment/testcases/TC10.1-all-pass-1.html",
@@ -96,7 +96,7 @@
       },
       {
         "TestID": "TC10.1-all-pass-2",
-        "TestCondition": "input text element with accessible name using label/for binding of on-screen label (old TC10-003-pass)",
+        "TestName": "input text element with accessible name using label/for binding of on-screen label (old TC10-003-pass)",
         "ExpectedResult": "pass",
         "FixTCNo": "TC10.1-all-pass-2",
         "TestCaseURL": "https://section508coordinators.github.io/baselinealignment/testcases/TC10.1-all-pass-2.html",
@@ -108,7 +108,7 @@
       },
       {
         "TestID": "TC12.1-2-fail-1",
-        "TestCondition": "data table in a `<table>` element also has `role=\"presentation\"`",
+        "TestName": "data table in a `<table>` element also has role=presentation",
         "ExpectedResult": "fail",
         "FixTCNo": "TC12.1-2-fail-1",
         "TestCaseURL": "https://section508coordinators.github.io/baselinealignment/testcases/TC12.1-2-fail-1.html",
@@ -120,7 +120,7 @@
       },
       {
         "TestID": "TC12.1-2-fail-2",
-        "TestCondition": "data table in a `<table>` element also has `role=\"none\"`",
+        "TestName": "data table in a <table> element also has role=none",
         "ExpectedResult": "fail",
         "FixTCNo": "TC12.1-2-fail-2",
         "TestCaseURL": "https://section508coordinators.github.io/baselinealignment/testcases/TC12.1-2-fail-2.html",
@@ -132,7 +132,7 @@
       },
       {
         "TestID": "TC17.5-ic-dna-1",
-        "TestCondition": "no synchronized media on page",
+        "TestName": "no synchronized media on page",
         "ExpectedResult": "dna",
         "FixTCNo": "TC17.5-ic-dna-1",
         "TestCaseURL": "https://section508coordinators.github.io/baselinealignment/testcases/TC17.5-ic-dna-1.html",
