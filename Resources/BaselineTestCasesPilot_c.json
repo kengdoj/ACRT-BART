@@ -133,7 +133,7 @@
       {
         "TestID": "TC17.5-ic-dna-1",
         "TestName": "no synchronized media on page",
-        "ExpectedResult": "dna",
+        "ExpectedResult": "does not apply",
         "FixTCNo": "TC17.5-ic-dna-1",
         "TestCaseURL": "https://section508coordinators.github.io/baselinealignment/testcases/TC17.5-ic-dna-1.html",
         "TestFile": "17.5-ic-dna-1",

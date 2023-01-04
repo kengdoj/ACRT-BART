@@ -48,7 +48,7 @@
             "T_eval": "Baseline Alignment Report",
             "T_evalMthd_Vrsn": "1.0",
             "crtLength": "0",
-            "T_Date": "Wed Jan 04 2023 16:21:20 GMT-0500 (Eastern Standard Time)"
+            "T_Date": "Wed Jan 04 2023 18:07:47 GMT-0500 (Eastern Standard Time)"
         },
         "Standard": {
             "Guideline": " ",
@@ -97,7 +97,7 @@
                 "TesterComment": "a",
                 "TestFile": "06.3-1-fail-1",
                 "TestFileURL": "https://section508coordinators.github.io/baselinealignment/testfiles/TF06/06.3-1-fail-1.html",
-                "Aligned": "",
+                "Aligned": "No",
                 "Counter": "",
                 "DraftReport": "false"
             },
@@ -112,7 +112,7 @@
                 "TesterComment": "b",
                 "TestFile": "06.3-2-fail-1",
                 "TestFileURL": "https://section508coordinators.github.io/baselinealignment/testfiles/TF06/06.3-2-fail-1.html",
-                "Aligned": "",
+                "Aligned": "Yes",
                 "Counter": "",
                 "DraftReport": "false"
             },
@@ -127,7 +127,7 @@
                 "TesterComment": "c",
                 "TestFile": "10.1-all-pass-1",
                 "TestFileURL": "https://section508coordinators.github.io/baselinealignment/testfiles/TF10/10.1-all-pass-1.html",
-                "Aligned": "",
+                "Aligned": "No",
                 "Counter": "",
                 "DraftReport": "false"
             },
@@ -142,7 +142,7 @@
                 "TesterComment": "d",
                 "TestFile": "10.1-all-pass-2",
                 "TestFileURL": "https://section508coordinators.github.io/baselinealignment/testfiles/TF10/10.1-all-pass-2.html",
-                "Aligned": "",
+                "Aligned": "No",
                 "Counter": "",
                 "DraftReport": "false"
             },
@@ -157,7 +157,7 @@
                 "TesterComment": "e",
                 "TestFile": "12.1-2-fail-1",
                 "TestFileURL": "https://section508coordinators.github.io/baselinealignment/testfiles/TF12/12.1-2-fail-1.html",
-                "Aligned": "",
+                "Aligned": "No",
                 "Counter": "",
                 "DraftReport": "false"
             },
@@ -172,7 +172,7 @@
                 "TesterComment": "f",
                 "TestFile": "12.1-2-fail-2",
                 "TestFileURL": "https://section508coordinators.github.io/baselinealignment/testfiles/TF12/12.1-2-fail-2.html",
-                "Aligned": "",
+                "Aligned": "Yes",
                 "Counter": "",
                 "DraftReport": "false"
             },
@@ -187,7 +187,7 @@
                 "TesterComment": "g",
                 "TestFile": "17.5-ic-dna-1",
                 "TestFileURL": "https://section508coordinators.github.io/baselinealignment/testfiles/TF17/17.5-ic-dna-1.html",
-                "Aligned": "",
+                "Aligned": "Yes",
                 "Counter": "",
                 "DraftReport": "false"
             }

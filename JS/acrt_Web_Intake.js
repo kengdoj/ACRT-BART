@@ -2493,6 +2493,14 @@ $scope.submit = function() {
 	 }
     if($scope.selected_name_tstgrp[i] == 'No Selection') continue;	 
 
+    // KE: BART alignment script
+    if ($scope.selected_name_tstgrp[i].toLowerCase() == $scope.criteriaTestsJson.Criteria[i].ExpectedResult.toLowerCase()) {
+      $scope.Aligned[i] = "Yes";
+    } else {
+      $scope.Aligned[i] = "No";
+    }
+    alert ('Expected Result ['+i+']='+$scope.criteriaTestsJson.Criteria[i].ExpectedResult + ' and Test Result ['+i+']= ' +$scope.selected_name_tstgrp[i]+ ', then Aligned [' + i + '] = '+ $scope.Aligned[i]);
+
     // KE: BART JSON output when file is saved
     $scope.testresult[i] = '{      "XCrtID": "' + $scope.criteriaTestsJson.Criteria[i].CrtID + '",' + 
     '"TestID": "' + $scope.criteriaTestsJson.Criteria[i].TestID + '",' + 
@@ -2504,7 +2512,7 @@ $scope.submit = function() {
     '"TesterComment": "' + $scope.testerCommentID[i] + '",' + 
     '"TestFile": "' + $scope.criteriaTestsJson.Criteria[i].TestFile + '",' + 
     '"TestFileURL": "' + $scope.criteriaTestsJson.Criteria[i].TestFileURL + '",' +
-    '"Aligned": "' + $scope.criteriaTestsJson.Criteria[i].Aligned  + '",' + 
+    '"Aligned": "' + $scope.Aligned[i]  + '",' + 
     '"Counter": "' + $scope.counterCollection[i];	
    // tried to add  + '",' + '"XTestCondition": "' + $scope.criteriaTestsJson.Criteria[i].TestCondition + '",' +
    // json output continued around line 1990
