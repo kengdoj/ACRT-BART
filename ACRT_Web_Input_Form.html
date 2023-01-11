@@ -39,11 +39,12 @@
 	  <h3>BART App Test Instructions:</h3>
 	  <ol>	
       <li>Use 'Skip to main content' link or keyboard shortcut Alt+M to go to main content.</li>		  
-	    <li>Use 'Choose File' to select this blank test template from the <strong>Resources folder: BaselineTestCasesPilot_c.json</strong>. Please save edits to a new filename.</li>
+	    <li>Use 'Choose File' to select this blank test template from the <strong>Resources folder: BaselineTestCasesPilot_d.json</strong>. Please save edits to a new filename.</li>
+        <!-- KE: FIXED!
         <ul>        	
           <li>Notes for Baseline JSON file: expand "dna" to "does not apply" (for alignment comparison)</li>
           <li>Notes for Baseline JSON file: remove quote marks from Test Case Description (to avoid JSON write errors).</li>
-        </ul>
+        </ul> -->
       <li>To load a completed demo report, select Kathyalpha_d.json from the Resources folder.</li>
 	  </ol>
 	</p><span id='selectFileHd' ng-hide = "fileInput1" >
@@ -332,8 +333,8 @@
 <option ng-repeat="result in optionsglbl" value="{{result.name}}">{{result.name}}</option>
 </select> &nbsp; &nbsp;   </div> -->
 
-
-<h2> Baseline Alignement Test Results Form </h2> 
+<!-- KE: BART table -->
+<h2>Baseline Alignment Test Results Form</h2> 
 
 <div id="rmdTbleDiv" style="overflow-x: auto;">	  
  
@@ -345,7 +346,7 @@
   <thead>
     <tr>   
         <th scope="col"><div class="widetd1">Item</div></th> 	 
-        <th scope="col" nowrap><div class="widetd5">Test Case ID</div></th>    	
+        <th scope="col" nowrap><div class="widetd3">Test Case ID</div></th>    	
         <th scope="col" nowrap><div class="widetd3">Test Case Description</div></th>
         <th scope="col" nowrap><div class="widetd3">Test File</div></th>
         <th scope="col"><div class="widetd3">Expected Test Result</div></th>
@@ -357,7 +358,7 @@
   <tbody ng-repeat="record in jsonData">
     <tr ng-repeat="test in record.Criteria" >
       <th scope="row"><div class="widetd1"> {{$index+1}} </div>  <!-- ng-if='original' --></th>
-      <td><div class="widetd5" id="testID{{$index}}" title="Test ID" nowrap><a href="{{test.TestCaseURL}}" target="testcase">{{test.TestID}}</a> </div> </td>
+      <td><div class="widetd3" id="testID{{$index}}" title="Test ID" nowrap><a href="{{test.TestCaseURL}}" target="testcase">{{test.TestID}}</a> </div> </td>
       <td><div class="widetd3" id="testcondition{{$index}}">{{test.TestName}}</div></td>
       <td><div class="widetd3"><a href="{{test.TestFileURL}}" target="testfile">{{test.TestFile}}</a></div></td>
       <td nowrap><div class="widetd3">{{test.ExpectedResult}}</div></td>

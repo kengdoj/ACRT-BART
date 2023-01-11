@@ -108,7 +108,7 @@
       },
       {
         "TestID": "TC12.1-2-fail-1",
-        "TestName": "data table in a `<table>` element also has role=presentation",
+        "TestName": "data table in a `<table>` element also has role=\"presentation\"",
         "ExpectedResult": "fail",
         "FixTCNo": "TC12.1-2-fail-1",
         "TestCaseURL": "https://section508coordinators.github.io/baselinealignment/testcases/TC12.1-2-fail-1.html",
@@ -120,7 +120,7 @@
       },
       {
         "TestID": "TC12.1-2-fail-2",
-        "TestName": "data table in a <table> element also has role=none",
+        "TestName": "data table in a `<table>` element also has role=\"none\"",
         "ExpectedResult": "fail",
         "FixTCNo": "TC12.1-2-fail-2",
         "TestCaseURL": "https://section508coordinators.github.io/baselinealignment/testcases/TC12.1-2-fail-2.html",
@@ -133,7 +133,7 @@
       {
         "TestID": "TC17.5-ic-dna-1",
         "TestName": "no synchronized media on page",
-        "ExpectedResult": "does not apply",
+        "ExpectedResult": "dna",
         "FixTCNo": "TC17.5-ic-dna-1",
         "TestCaseURL": "https://section508coordinators.github.io/baselinealignment/testcases/TC17.5-ic-dna-1.html",
         "TestFile": "17.5-ic-dna-1",

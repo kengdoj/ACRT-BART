@@ -2468,6 +2468,12 @@ $scope.submit = function() {
 	$scope.testerCommentID[i] = $scope.testerCommentID[i].toString().replace(/\n/g, " ");
 	//alert($scope.testerCommentID[i]);
 	
+  // KE: BART to handle Test Case Descriptions with quote marks
+  if ($scope.criteriaTestsJson.Criteria[i].TestName == undefined)
+      $scope.criteriaTestsJson.Criteria[i].TestName = "";
+    $scope.criteriaTestsJson.Criteria[i].TestName = $scope.criteriaTestsJson.Criteria[i].TestName.toString().replace(/"/g, "'");
+	$scope.criteriaTestsJson.Criteria[i].TestName = $scope.criteriaTestsJson.Criteria[i].TestName.toString().replace(/\n/g, " ");
+	//alert($scope.testerCommentID[i]);
 	/*  if ($scope.location[i] == undefined)
       $scope.location[i] = " ";
     $scope.location[i] = $scope.location[i].toString().replace(/"/g, "'");
@@ -2493,13 +2499,17 @@ $scope.submit = function() {
 	 }
     if($scope.selected_name_tstgrp[i] == 'No Selection') continue;	 
 
+    // KE: BART allow for dna result in test cases, expand for alignment script
+    if ($scope.criteriaTestsJson.Criteria[i].ExpectedResult == "dna") {$scope.criteriaTestsJson.Criteria[i].ExpectedResult = "does not apply"};
+    alert($scope.criteriaTestsJson.Criteria[i].ExpectedResult);
+    
     // KE: BART alignment script
-    if ($scope.selected_name_tstgrp[i].toLowerCase() == $scope.criteriaTestsJson.Criteria[i].ExpectedResult.toLowerCase()) {
+        if ($scope.selected_name_tstgrp[i].toLowerCase() == $scope.criteriaTestsJson.Criteria[i].ExpectedResult.toLowerCase()) {
       $scope.Aligned[i] = "Yes";
     } else {
       $scope.Aligned[i] = "No";
     }
-    alert ('Expected Result ['+i+']='+$scope.criteriaTestsJson.Criteria[i].ExpectedResult + ' and Test Result ['+i+']= ' +$scope.selected_name_tstgrp[i]+ ', then Aligned [' + i + '] = '+ $scope.Aligned[i]);
+    // alert ('Expected Result ['+i+']='+$scope.criteriaTestsJson.Criteria[i].ExpectedResult + ' and Test Result ['+i+']= ' +$scope.selected_name_tstgrp[i]+ ', then Aligned [' + i + '] = '+ $scope.Aligned[i]);
 
     // KE: BART JSON output when file is saved
     $scope.testresult[i] = '{      "XCrtID": "' + $scope.criteriaTestsJson.Criteria[i].CrtID + '",' + 
