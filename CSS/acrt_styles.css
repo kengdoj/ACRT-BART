@@ -317,12 +317,12 @@ i{
 
 
 
-.up {
+.down {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);  
 }
 
-.down {
+.up {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
