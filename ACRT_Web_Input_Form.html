@@ -35,17 +35,30 @@
   <a title="ACRT GitHub Repository" href= "https://github.com/Section508Coordinators/ACRT " target="_blank"   id="helpID"> GitHub </a>  &nbsp;(all users) 
   or <a title="ACRT Bitbucket Repository" href= "https://maestro.dhs.gov/stash/projects/APPDEV/repos/acrt/browse/acrt" target="_blank"   id="bitbucketSrc">BitBucket </a>  &nbsp;(DHS users) before completing the form. <br><br>
   <p>Refer to the <a title="ACRT User Guide" href="./Resources/ACRTTrainingManual.pdf" target="_blank"  id="helpID" style="display:inline-block; color:blue;">ACRT User Guide </a> &nbsp;for complete instructions.</p> -->
-  
+  <h3>Developer Updates/Notes</h3>
+  <ul>
+    <li>Form data updates: Product changed to Process, Tester changed to Submitter.</li>
+    <li>An overall alignment result is determined when the JSON file is saved.</li>
+    <li>Sample files and instructions updated.</li>
+    <li>Quote marks allowed in Test Case Description and Tester Comments</li>
+  </ul>
+
+
 	  <h3>BART App Test Instructions:</h3>
 	  <ol>	
       <li>Use 'Skip to main content' link or keyboard shortcut Alt+M to go to main content.</li>		  
-	    <li>Use 'Choose File' to select this blank test template from the <strong>Resources folder: BaselineTestCasesPilot_d.json</strong>. Please save edits to a new filename.</li>
+	    <li>Use 'Choose File' to select a JSON file from the Resources folder. <strong>BaselineTestCasesPilot_e.json</strong> is a sample starter file (no user form fields completed). Please save edits to a new filename.</li>
         <!-- KE: FIXED!
         <ul>        	
           <li>Notes for Baseline JSON file: expand "dna" to "does not apply" (for alignment comparison)</li>
           <li>Notes for Baseline JSON file: remove quote marks from Test Case Description (to avoid JSON write errors).</li>
         </ul> -->
-      <li>To load a completed demo report, select Kathyalpha_d.json from the Resources folder.</li>
+      <li>Sample JSONs with test results are also available in the Resources folder: 
+        <ul>
+          <li>The 'BAT Process3.3_aligned.json' has all of the test process results align with all Baseline Expected Results.</li>
+          <li>The 'Bat Process3.3_notaligned.json' has some test process results that do not align with Baseline Expected Results.</li>
+        </ul>
+      </li>
 	  </ol>
 	</p><span id='selectFileHd' ng-hide = "fileInput1" >
 		<label for="fileinput" ><strong> Select template or test results JSON file </strong></label> <br> 
@@ -75,27 +88,27 @@
 	  <br>A red asterisk <strong>(<span class="required">) </strong> </span> indicates a <strong>required</strong> field. 
 	 </p>
 	 </div>
- <!-- 
- <p>  <strong> Note: </strong> <br> 
- <ul>  
-      
-  <li> Expand each section below to enter required information.</li>
  
+ <!-- <p>  <strong> Note: </strong> <br> -->
+ <!-- <ul>       
+  <li> Expand each section below to enter required information.</li>
  </ul>  </p> -->
+
+ <!-- KE: BART edits -->
 <div ng-show="displayIt"> 
 <fieldset  style="margin-left: 1em;height: auto;">
   <legend>
-    <h2> <span class="required"> Product </h2></legend>
-    <button class="collapsible" title="Show or Hide Product Section" onclick="expandCollapse1()"><div id="expandCollapse1"> <i class="up"></i> Show Product Section</div> </button> 
+    <h2> <span class="required"> Test Process </h2></legend>
+    <button class="collapsible" title="Show or Hide Submitter Section" onclick="expandCollapse1()"><div id="expandCollapse1"> <i class="up"></i> Show Submitter Section</div> </button> 
     <div class="content">
       <div class="divSpace" id="productInfo" >
-      <label for="productID" class="required"> Product Name (Required<span ng-if="acrtInputForm.productName.$valid" >, 50 chars max</span>): </label><br>
+      <label for="productID" class="required"> Process Name (Required<span ng-if="acrtInputForm.productName.$valid" >, 50 chars max</span>): </label><br>
       <input type="string" name= "productName" title="50 Chars max" ng-model="productID" class= "betnTags" id="productID" ng-maxlength="50" size="50" limit-to="50"> 
-      <br><label for="versionID" class="required"> Product Version (Required<span ng-if="acrtInputForm.ProductVersion.$valid" >, 50 chars max</span>): </label> <br><input type="string" ng-model="versionID" class= "betnTags" id="versionID" name="ProductVersion" title="50 Char max" ng-maxlength="50" size="50" limit-to="50" > 
-      <br> <label for="ownerID">Product Owner/Vendor <span ng-if="acrtInputForm.ProductOwner.$valid" >(50 chars max)</span>: </label> <br><input type="string" ng-model="ownerID" class= "betnTags" id="ownerID" name="ProductOwner" title="50 Chars max" ng-maxlength="50" size="50" limit-to="50" > <br>
+      <br><label for="versionID" class="required"> Process Version (Required<span ng-if="acrtInputForm.ProductVersion.$valid" >, 50 chars max</span>): </label> <br><input type="string" ng-model="versionID" class= "betnTags" id="versionID" name="ProductVersion" title="50 Char max" ng-maxlength="50" size="50" limit-to="50" > 
+      <!-- <br> <label for="ownerID">Process Owner/Vendor <span ng-if="acrtInputForm.ProductOwner.$valid" >(50 chars max)</span>: </label> <br><input type="string" ng-model="ownerID" class= "betnTags" id="ownerID" name="ProductOwner" title="50 Chars max" ng-maxlength="50" size="50" limit-to="50" > --> <br>
         
-      <label for="productType"> Product Type:</label>  <br>
-      <select name="Type of Product" title="Product type {{default_productType}}" ng-model="productType" class= "betnTags" id="productType" >
+      <label for="productType"> Process Type:</label>  <br>
+      <select name="Type of Process" title="Process type {{default_productType}}" ng-model="productType" class= "betnTags" id="productType" >
       <option value="">{{default_productType}}</option>
       <option ng-repeat="result in testProductTypes" value="{{result.name}}">{{result.name}}</option>
       </select>
@@ -103,9 +116,9 @@
       <span  ng-show="productType=='Other'"> 
       Please enter <span ng-if="acrtInputForm.OtherProductType.$valid" >(100 chars max)</span><br><input  type="string" ng-model="otherProduct" class= "betnTags" id="otherProduct" name="OtherProductType" ng-maxlength="100"  title="100 Chars max" size="100" limit-to="100"> 
       </span>   
-      <br><label for="urlID">Location/URL <span ng-if="acrtInputForm.Location.$valid" >(150 chars max)</span>: </label> <br><input type="string" ng-model="urlID" class= "betnTags" id="urlID"  name="Location" title="150 Chars max" ng-maxlength="150" size="100" limit-to="150">     
+      <br><label for="urlID">Test Process URL (if public) <span ng-if="acrtInputForm.Location.$valid" >(150 chars max)</span>: </label> <br><input type="string" ng-model="urlID" class= "betnTags" id="urlID"  name="Location" title="150 Chars max" ng-maxlength="150" size="100" limit-to="150">     
       <br>
-      <label for="prodDescID" class="required"> Product description (Required <span ng-if="acrtInputForm.ProductDescription.$valid" >, 1000 chars max</span>) : </label><br>
+      <label for="prodDescID" class="required"> Process description (Required <span ng-if="acrtInputForm.ProductDescription.$valid" >, 1000 chars max</span>) : </label><br>
       <textarea rows="4" cols="90" type="text" ng-model="prodDescID" class="betnTags" id="prodDescID" name="ProductDescription" title="1000 Chars max" ng-maxlength="1000" limit-to="1000" required>This is test data from Kathy. </textarea> 
       <br><label for="prdNteDescID"> Notes <span ng-if="acrtInputForm.Notes.$valid" >(1000 chars max)</span>:</label><br>
       <textarea rows="4" cols="90" type="text" ng-model="prdNteDescID" class="betnTags" id="prdNteDescID" name="Notes" title="1000 Chars max" ng-maxlength="1000" limit-to="1000"> </textarea> <br>
@@ -117,19 +130,19 @@
  
   <fieldset style="margin-left: 1em;"> 
  <legend>
- <h2> <span class="required"> Testing Information </h2>
+ <h2> <span class="required"> Submitter Information </h2>
  </legend> 
  <button class="collapsible" title="Show or Hide Testing Information section" onclick="expandCollapse3()"> <div id="expandCollapse3"> <i class="up"></i> Show Testing Information Section</div> </button>
 <div class="content">
 
  <div class="divSpace" id="testersInfo" >
- <label for="CompanyName" class="required"> Company Name (Required<span ng-if="acrtInputForm.CompanyName.$valid" >, 100 chars max</span>): </label> <br><input type="string" ng-model="companyname" class= "betnTags" title="100 Chars max" id="companyname" name="CompanyName" ng-maxlength="100"   size="100" limit-to="100" > 
-  <br><label for="firstname" class="required"> Tester's First Name (Required<span ng-if="acrtInputForm.TesterFirstName.$valid" >, 50 chars max</span>): </label> <br><input type="string" ng-model="firstname" class= "betnTags" id="firstname" name="TesterFirstName" title="50 Chars max" ng-maxlength="50"  size="50" limit-to="50" >    
-   <br><label for="lastname" class="required"> Tester's Last Name (Required<span ng-if="acrtInputForm.TesterLastName.$valid" >, 50 chars max</span>): </label> <br><input type="string" ng-model="lastname" class= "betnTags" id="lastname" name="TesterLastName" title="50 Chars max" ng-maxlength="50"  size="50" limit-to="50" > 
-  <br><label for="testerID"> Trusted Tester ID <span ng-if="acrtInputForm.TrustedTesterId.$valid" >(50 chars max)</span>: </label> <br><input type="string" ng-model="testerID" class= "betnTags" id="testerID" name="TrustedTesterId" title="50 Chars max" ng-maxlength="50" limit-to="50">    
-  <br> <label for="testerContact" class="required"> Tester's Email (Required<span ng-if="acrtInputForm.TesterContact.$valid" >, 50 chars max</span>): </label> <br><input type="string" ng-model="testerContact" class= "betnTags" id="testerContact" name="TesterContact" title="50 Chars max" ng-maxlength="50"  size="50" limit-to="50" >
-   <br><label for="testScope" > Testing Scope <span ng-if="acrtInputForm.TestScope.$valid" >(1000 chars max)</span>:</label><br> <textarea rows="4"cols="90"type="text"ng-model="testScope" class= "betnTags" id="testScope"name="TestScope" title="1000 Chars max" ng-maxlength="1000" limit-to="1000"></textarea>   
-    <br> Alignment Results For: <strong>{{selected_name_tstprcss}}	</strong>  Version  <strong>{{evlMthdVrsn}} </strong>
+ <label for="CompanyName" class="required"> Agency Full Name (Required<span ng-if="acrtInputForm.CompanyName.$valid" >, 100 chars max</span>): </label> <br><input type="string" ng-model="companyname" class= "betnTags" title="100 Chars max" id="companyname" name="CompanyName" ng-maxlength="100"   size="100" limit-to="100" > 
+  <br><label for="firstname" class="required"> Submitter's First Name (Required<span ng-if="acrtInputForm.TesterFirstName.$valid" >, 50 chars max</span>): </label> <br><input type="string" ng-model="firstname" class= "betnTags" id="firstname" name="TesterFirstName" title="50 Chars max" ng-maxlength="50"  size="50" limit-to="50" >    
+   <br><label for="lastname" class="required"> Submitter's Last Name (Required<span ng-if="acrtInputForm.TesterLastName.$valid" >, 50 chars max</span>): </label> <br><input type="string" ng-model="lastname" class= "betnTags" id="lastname" name="TesterLastName" title="50 Chars max" ng-maxlength="50"  size="50" limit-to="50" > 
+  <br><label for="testerID"> Submitter's Title <span ng-if="acrtInputForm.TrustedTesterId.$valid" >(100 chars max)</span>: </label> <br><input type="string" ng-model="testerID" class= "betnTags" id="testerID" name="TrustedTesterId" title="100 Chars max" ng-maxlength="100" size="100" limit-to="100">    
+  <br> <label for="testerContact" class="required"> Submitter's Email (Required<span ng-if="acrtInputForm.TesterContact.$valid" >, 50 chars max</span>): </label> <br><input type="string" ng-model="testerContact" class= "betnTags" id="testerContact" name="TesterContact" title="50 Chars max" ng-maxlength="50"  size="50" limit-to="50" >
+   <br><label for="testScope" > All alignment results will be shared publicly on Section508.gov. Please describe any concerns. <span ng-if="acrtInputForm.TestScope.$valid" >(1000 chars max)</span>:</label><br> <textarea rows="4"cols="90"type="text"ng-model="testScope" class= "betnTags" id="testScope"name="TestScope" title="1000 Chars max" ng-maxlength="1000" limit-to="1000"></textarea>   
+    <!-- <br> Alignment Results For: <strong>{{selected_name_tstprcss}}	</strong>  Version  <strong>{{evlMthdVrsn}} </strong> -->
 
 	 <!-- <select name="  Evaluation Method " ng-model="selected_name_tstprcss" id="evalMthd"  >  
 <option value="" selected disabled hidden>{{default_evalMethod}}</option>
@@ -146,7 +159,7 @@
  </div> </div>
  </fieldset><br>
  
-  <fieldset style="margin-left: 1em;">
+<!--   <fieldset style="margin-left: 1em;">
 <legend> 
  <h2> Test Environment   </h2>
  </legend> 
@@ -201,8 +214,8 @@
 <label for="edVersnIDTest">  Version: </label> 
 	
 	   <select name="Edge version" title="Edge {{default_edgVersn}}" ng-model="selected_name_edVersn" id="edVersnIDTest"  ng-click="tstEdgeClicked()">
-<option value="" selected disabled hidden>{{default_edgVersn}}</option>  <!-- default_edgVersn -->
-<option ng-repeat="result in optionedVersn" value="{{result.name}}">{{result.name}}</option>
+<option value="" selected disabled hidden>{{default_edgVersn}}</option> -->  <!-- default_edgVersn -->
+<!-- <option ng-repeat="result in optionedVersn" value="{{result.name}}">{{result.name}}</option>
 </select>
 
 </td>
@@ -267,9 +280,9 @@
 </tr>
 </tbody>
 </table>
+ -->
 
-
-<br> </br>
+<!-- <br> </br>
 
  
 </div>
@@ -322,7 +335,7 @@
  
 
  &nbsp; 
-</br> </br> 
+</br> </br> --> 
 
 <!-- <input type="checkbox" id="rmdtlnd" name="Remediation Details" title="Remediation Details" ng-model="selected_name_rmdtn"  ng-init="selected_name_rmdtn='No'"   ng-true-value="'Yes'" ng-false-value="'No'" ng-click="remediationDetails()"> -->
 	

@@ -450,20 +450,20 @@ $scope.optionsglbl = [
   }
 
 ];
-//Product types 
+//Product types - KE: BART, edited to be used for Test Process Type
 $scope.testProductTypes = [
   {
     id: 1,
-    name: 'Custom developed web page'
+    name: 'Automated Only'
   },
   {
     id: 2,
-    name: 'COTS'
+    name: 'Manual Only'
   },
   {
     id: 3,
-    name: 'Customization of COTS product'
-  },
+    name: 'Hybrid (Automated and Manual)'
+  }/* ,
   {
     id: 4,
     name: 'GOTS application'
@@ -475,7 +475,7 @@ $scope.testProductTypes = [
   {
     id: 6,
     name: 'Other'
-  }
+  } */
 ];
 
 $scope.selected_name_ieVersn="";
@@ -1081,41 +1081,41 @@ $scope.loadFile = function loadFile() {
 	//document.getElementById("instr").innerHTML = "";
 	//document.getElementById("hideLoad").innerHTML = "";
 	$scope.dataLoaded = true;
-      if($scope.jsonData[0].Product.P_Name == " "){
+      if($scope.jsonData[0].Process.P_Name == " "){
       $scope.original = true;
 	  $scope.validFile = true;	      	  
 	  }	 	 
        
-	  if($scope.jsonData[0].Product.P_Name == undefined){
+	  if($scope.jsonData[0].Process.P_Name == undefined){
       $scope.edit = true;
 	  $scope.validFile = true;	  
 	  }	  	  
       
     // KE: Data for the saved JSON file
-    //Product
-	  $scope.productID = $scope.jsonData[0].Product.P_Name;	     
-      $scope.versionID = $scope.jsonData[0].Product.P_Version;      
-      $scope.ownerID = $scope.jsonData[0].Product.P_Owner;     
-      $scope.productType = $scope.jsonData[0].Product.P_Type;        	  
-      $scope.urlID = $scope.jsonData[0].Product.P_Location;     
-      $scope.prodDescID = $scope.jsonData[0].Product.P_Desc;     
-      $scope.prdNteDescID = $scope.jsonData[0].Product.P_Notes;     
-    //Tester
-    $scope.firstname = $scope.jsonData[0].Tester.T_fstnm;    
-    $scope.lastname = $scope.jsonData[0].Tester.T_lstnm;  
-    $scope.companyname = $scope.jsonData[0].Tester.T_companyname; 	
-    $scope.testerID = $scope.jsonData[0].Tester.T_ID;    
-    $scope.myRole = $scope.jsonData[0].Tester.T_Role;    
-    $scope.testerContact = $scope.jsonData[0].Tester.T_cntc;	
-    if($scope.jsonData[0].Tester.T_scope == undefined)	
-	$scope.jsonData[0].Tester.T_scope='';
-	$scope.testScope = $scope.jsonData[0].Tester.T_scope; 
-	if($scope.jsonData[0].Tester.T_Date == undefined)
-	$scope.jsonData[0].Tester.T_Date = '';
-	$scope.testDate = $scope.jsonData[0].Tester.T_Date; 
+    //Product (renamed to Process in BART)
+	  $scope.productID = $scope.jsonData[0].Process.P_Name;	     
+      $scope.versionID = $scope.jsonData[0].Process.P_Version;      
+      $scope.ownerID = $scope.jsonData[0].Process.P_Owner;     
+      $scope.productType = $scope.jsonData[0].Process.P_Type;        	  
+      $scope.urlID = $scope.jsonData[0].Process.P_Location;     
+      $scope.prodDescID = $scope.jsonData[0].Process.P_Desc;     
+      $scope.prdNteDescID = $scope.jsonData[0].Process.P_Notes;     
+    //Tester (renamed to Submitter in BART)
+    $scope.firstname = $scope.jsonData[0].Submitter.T_fstnm;    
+    $scope.lastname = $scope.jsonData[0].Submitter.T_lstnm;  
+    $scope.companyname = $scope.jsonData[0].Submitter.T_companyname; 	
+    $scope.testerID = $scope.jsonData[0].Submitter.T_ID;    
+    $scope.myRole = $scope.jsonData[0].Submitter.T_Role;    
+    $scope.testerContact = $scope.jsonData[0].Submitter.T_cntc;	
+    if($scope.jsonData[0].Submitter.T_scope == undefined)	
+	$scope.jsonData[0].Submitter.T_scope='';
+	$scope.testScope = $scope.jsonData[0].Submitter.T_scope; 
+	if($scope.jsonData[0].Submitter.T_Date == undefined)
+	$scope.jsonData[0].Submitter.T_Date = '';
+	$scope.testDate = $scope.jsonData[0].Submitter.T_Date; 
 	$scope.testDate = $scope.testDate.toString();
 	//$scope.testDate = $scope.testDate ;
-      //$scope.evlMthdVrsn = "V5"; //$scope.jsonData[0].Tester.T_evalMthd_Vrsn;	
+      //$scope.evlMthdVrsn = "V5"; //$scope.jsonData[0].Submitter.T_evalMthd_Vrsn;	
       $scope.criteriaUnique = $scope.jsonData[0].SuccessCriteria;  
 	  $scope.guidelinesAdded = false;
 	  if($scope.original != true)
@@ -1174,10 +1174,12 @@ $scope.createEditOption = 'Edit Report Test Results Form';
     $scope.TestFile =[];
     $scope.TestFileURL =[];
     $scope.Aligned =[];
+    $scope.BaselineAligned ="Yes";
+    
 
 	$scope.origSelectedResults1=$scope.origSelectedResults-1;
 
-// KE: BART doesn't allow adding rows; don'tneed this 
+// KE: BART doesn't allow adding rows; don't need this 
 	$scope.addIssue = function(index) {    	
     // if($scope.selected_name_tstgrp[index] !== undefined){			
     $scope.insertRoww = []; 
@@ -1457,16 +1459,16 @@ $scope.createEditOption = 'Edit Report Test Results Form';
       $scope.entOthrWindVrsn = $scope.jsonData[0].System.S_otherOSVrsn;
       if($scope.jsonData[0].System.S_Compatibility != undefined)
       $scope.default_compatibility = $scope.jsonData[0].System.S_Compatibility;   
-      if($scope.jsonData[0].Tester.T_eval != undefined)  
-      $scope.default_evalMethod = $scope.jsonData[0].Tester.T_eval;  
+      if($scope.jsonData[0].Submitter.T_eval != undefined)  
+      $scope.default_evalMethod = $scope.jsonData[0].Submitter.T_eval;  
       if($scope.default_evalMethod != undefined)
 	  $scope.selected_name_tstprcss = $scope.default_evalMethod;
-      if( $scope.jsonData[0].Tester.T_evalMthd_Vrsn != undefined)	  
-	  $scope.default_tstVrsn = $scope.jsonData[0].Tester.T_evalMthd_Vrsn;
+      if( $scope.jsonData[0].Submitter.T_evalMthd_Vrsn != undefined)	  
+	  $scope.default_tstVrsn = $scope.jsonData[0].Submitter.T_evalMthd_Vrsn;
       if( $scope.default_tstVrsn != undefined)
       $scope.evlMthdVrsn = $scope.default_tstVrsn ;  
-      if( $scope.jsonData[0].Product.P_Type != undefined)  
-      $scope.default_productType = $scope.jsonData[0].Product.P_Type;	       
+      if( $scope.jsonData[0].Process.P_Type != undefined)  
+      $scope.default_productType = $scope.jsonData[0].Process.P_Type;	       
 	  $scope.jsonData[0].System.S_other = $scope.jsonData[0].System.S_other.toString().trim();	  
 	  if ($scope.jsonData[0].System.S_other === 'Other Browser' || $scope.jsonData[0].System.S_other === '  Other Browser  ' ){
        $scope.chkBoxValOthrBrwsr1 = true;
@@ -1827,7 +1829,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 	   $scope.default_tstVrsn ='';   
    if($scope.default_tstVrsn == undefined)
 	   $scope.default_tstVrsn ='';   
-      document.getElementById("msg").innerHTML = "<strong>"+$scope.default_evalMethod +", Version "+$scope.default_tstVrsn + $scope.productID+$scope.versionID+" JSON"+ "</strong> file load completed.<br> To load a different file, <strong>reload</strong> this page.";		  	  
+      document.getElementById("msg").innerHTML = "<strong>"+ $scope.productID +" Version "+ $scope.versionID + " JSON"+ "</strong> file load completed.<br> To load a different file, <strong>reload</strong> this page.";		  	  
       alert('File loaded.To save changes at any time, use Alt+S or Save button at bottom of the page.');
 	if($scope.default_tstVrsn == "undefined"  )
 	  $scope.updateJSON = true; 
@@ -1992,7 +1994,7 @@ $scope.remarkExplanation = function(i) {
     $scope.rmdatnDtlID[i] = $scope.rmdatnDtlID[i].toString().replace(/"/g, "'").trim();
    $scope.rmdatnDtlID[i] = $scope.rmdatnDtlID[i].toString().replace(/\n/g, " ");
 	
-   $scope.testresult[i] = $scope.testresult[i] +'","DraftReport": "' + $scope.draftReport + '"}';
+   $scope.testresult[i] = $scope.testresult[i]+ '"}';
    // KE: removed "RemediationDate": "' + $scope.rmdatnDatelIDCollection[i] +  '","RemediationDetails": "' + $scope.rmdatnDtlID[i]+ '", from previous line
   
 // KE: For BART - output is correct, but .TestCondition in line 2496 causes a failure in the IsJsonString function
@@ -2501,14 +2503,18 @@ $scope.submit = function() {
 
     // KE: BART allow for dna result in test cases, expand for alignment script
     if ($scope.criteriaTestsJson.Criteria[i].ExpectedResult == "dna") {$scope.criteriaTestsJson.Criteria[i].ExpectedResult = "does not apply"};
-    alert($scope.criteriaTestsJson.Criteria[i].ExpectedResult);
+    //alert($scope.criteriaTestsJson.Criteria[i].ExpectedResult);
     
     // KE: BART alignment script
+   // $scope.BaselineAligned = "Yes"; //alignment is set to yes until changed to no by if then.
         if ($scope.selected_name_tstgrp[i].toLowerCase() == $scope.criteriaTestsJson.Criteria[i].ExpectedResult.toLowerCase()) {
       $scope.Aligned[i] = "Yes";
     } else {
       $scope.Aligned[i] = "No";
+      $scope.BaselineAligned = "No";
+      //alert("Baseline Aligned result is " + $scope.BaselineAligned)
     }
+    //alert("Final Baseline Aligned result is " + $scope.BaselineAligned)
     // alert ('Expected Result ['+i+']='+$scope.criteriaTestsJson.Criteria[i].ExpectedResult + ' and Test Result ['+i+']= ' +$scope.selected_name_tstgrp[i]+ ', then Aligned [' + i + '] = '+ $scope.Aligned[i]);
 
     // KE: BART JSON output when file is saved
@@ -2524,6 +2530,7 @@ $scope.submit = function() {
     '"TestFileURL": "' + $scope.criteriaTestsJson.Criteria[i].TestFileURL + '",' +
     '"Aligned": "' + $scope.Aligned[i]  + '",' + 
     '"Counter": "' + $scope.counterCollection[i];	
+
    // tried to add  + '",' + '"XTestCondition": "' + $scope.criteriaTestsJson.Criteria[i].TestCondition + '",' +
    // json output continued around line 1990
    
@@ -3440,11 +3447,12 @@ $scope.testresult1 = '"Criteria":[' + $scope.totTstRslt + ']';
 	$scope.browserCollection = $scope.browserCollection.toString().replace(/,\s*$/, "");
 
   // KE: Create the JSON saved file
-    $scope.formData = '[{"Product":' +
+    $scope.formData = '[{"Process":' +
     '{"P_Name":"' + $scope.productID + '","P_Version": "' + $scope.versionID + '","P_Owner": "' + $scope.ownerID + '","P_Type": "' + $scope.productType + '","P_Location": "' + $scope.urlID + '","P_Desc": "' + $scope.prodDescID + '","P_Notes": "' + $scope.prdNteDescID + '"}, "System":' +
-    $scope.myOpsys + $scope.osVrsnNo + '","S_osVrsnNo": "' + $scope.osVrsnCollection + '","S_selectedOS": "' + $scope.osCollection + $scope.categories + $scope.browserVersionsCollection + '","S_selectedBrowser": "' + $scope.browserCollection + '","S_selectedBrowserVersions": "' + $scope.browserVrsnCollection + '","S_Compatibility": "' + $scope.selected_name_cmpblty + '"},"Tester":' +
+    $scope.myOpsys + $scope.osVrsnNo + '","S_osVrsnNo": "' + $scope.osVrsnCollection + '","S_selectedOS": "' + $scope.osCollection + $scope.categories + $scope.browserVersionsCollection + '","S_selectedBrowser": "' + $scope.browserCollection + '","S_selectedBrowserVersions": "' + $scope.browserVrsnCollection + '","S_Compatibility": "' + $scope.selected_name_cmpblty + '"},"Submitter":' +
     '{"T_fstnm":"' + $scope.firstname + '","T_lstnm": "' + $scope.lastname + '","T_ID": "' + $scope.testerID + '","T_companyname": "' + $scope.companyname +'","T_Role": "' + $scope.myRole + '","T_cntc": "' + $scope.testerContact + '","T_scope": "' + $scope.testScope + '","T_eval": "' + $scope.selected_name_tstprcss + '","T_evalMthd_Vrsn": "' + $scope.evlMthdVrsn + '","crtLength": "' + $scope.criteriaLength + '","T_Date": "' + $scope.tDateId + '"}, "Standard":' +
-    '{"Guideline":"' + $scope.Guideline + '","Section508": "' + $scope.Section508 + '","EN_Accessibility": "' + $scope.EN_Accessibility + '"},' +'"FPCMapping": ['+ $scope.fpcMapping+' ],'+ $scope.criteriaResult1 + ',' + $scope.testresult1 +'}]';
+    '{"Guideline":"' + $scope.Guideline + '","Section508": "' + $scope.Section508 + '","EN_Accessibility": "' + $scope.EN_Accessibility + '"},' +'"FPCMapping": ['+ $scope.fpcMapping+' ],'+ $scope.criteriaResult1 + ',' + $scope.testresult1 + ', "BaselineAlignment":' + '{"BaselineAligned": "' + $scope.BaselineAligned + '"}' +'}]';
+    
 
 };
 
