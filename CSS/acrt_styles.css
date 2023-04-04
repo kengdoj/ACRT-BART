@@ -317,12 +317,12 @@ i{
 
 
 
-.up {
+.down {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);  
 }
 
-.down {
+.up {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
@@ -474,7 +474,7 @@ fieldset
 
 h2,h3,h4 {font-weight: bold;
        /*padding: 10px;*/
-	   padding-left: 2em;
+	   /* padding-left: 2em; */
        text-align: left;
 	   font-family: "Source Sans Pro", "Franklin Gothic Book","system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";}
 	   

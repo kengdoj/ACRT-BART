@@ -1,12 +1,12 @@
 [
 {
-    "Product": {
-        "P_Name": "Kathy",
-        "P_Version": "alpha",
+    "Process": {
+        "P_Name": "",
+        "P_Version": "",
         "P_Owner": "",
         "P_Type": "",
         "P_Location": "",
-        "P_Desc": "Test Data",
+        "P_Desc": "",
         "P_Notes": ""
     },
     "System": {
@@ -37,16 +37,16 @@
         "S_selectedBrowserVersions": "",
         "S_Compatibility": " "
     },
-    "Tester": {
-        "T_fstnm": "Kathy",
-        "T_lstnm": "Eng",
+    "Submitter": {
+        "T_fstnm": "",
+        "T_lstnm": "",
         "T_ID": "",
-        "T_companyname": "AB",
+        "T_companyname": "",
         "T_Role": " ",
-        "T_cntc": "eng@ab.gov",
+        "T_cntc": "",
         "T_scope": "",
-        "T_eval": "Baseline Alignment Report",
-        "T_evalMthd_Vrsn": "1.0",
+        "T_eval": "",
+        "T_evalMthd_Vrsn": "",
         "crtLength": "0",
         "T_Date": "Tue Nov 08 2022 18:23:41 GMT-0500 (Eastern Standard Time)"
     },
@@ -142,6 +142,9 @@
         "TesterComment": "",
         "Aligned": ""
       }
-    ]
+    ],
+    "BaselineAlignment": {
+      "BaselineAligned": ""
+  }
 }
 ]
