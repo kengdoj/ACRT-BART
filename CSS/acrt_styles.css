@@ -548,6 +548,18 @@ txtarea
 	word-wrap: break-word;
 }
 
+.txtarea1{
+  /* margin-top: 20px; */
+  /*width: 500px;*/
+height: 35px;   
+padding: 5px;
+/* overflow-y: scroll; */
+vertical-align: top;
+/* overflow: scroll;  */
+resize: none;
+word-wrap: break-word;
+}
+
 .betnTags{
 margin-left: 0px;
 margin-top:6px;

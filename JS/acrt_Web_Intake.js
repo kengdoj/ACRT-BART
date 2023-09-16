@@ -916,6 +916,7 @@ $scope.sbmtClickedMultiple = false;
 $scope.sbmtClickedSingle = false;
 $scope.issueNo = [];
 $scope.testerCommentID = [];
+$scope.testProcessID = [];  //KE
 $scope.disabilityGrp = [];
 $scope.remarkID = [];
 $scope.glbisue = [];
@@ -1169,6 +1170,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 		$scope.counterCollection =[];
 	
     // KE: for BART
+    $scope.TestProcess=[];
     $scope.ExpectedResult =[];
     $scope.TestCaseURL =[];
     $scope.TestFile =[];
@@ -1179,7 +1181,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 
 	$scope.origSelectedResults1=$scope.origSelectedResults-1;
 
-// KE: BART doesn't allow adding rows; don't need this 
+// KE: BART needs this to add new rows for each test case; no changes made 
 	$scope.addIssue = function(index) {    	
     // if($scope.selected_name_tstgrp[index] !== undefined){			
     $scope.insertRoww = []; 
@@ -1190,6 +1192,10 @@ $scope.createEditOption = 'Edit Report Test Results Form';
       $scope.menu1.splice(index, 0, $scope.menu1[index]);	  	
       $scope.location[addedPosition] = '';	
       $scope.location.splice(index, 0, $scope.location[addedPosition]);		
+      //KE
+      $scope.testProcessID[addedPosition] = ''; 	
+     $scope.testProcessID.splice(index, 0, $scope.testProcessID[addedPosition]);	
+      //KE
      $scope.testerCommentID[addedPosition] = ''; 	
      $scope.testerCommentID.splice(index, 0, $scope.testerCommentID[addedPosition]);	
      $scope.rmdatnDtlID[addedPosition] = '';		
@@ -1304,6 +1310,8 @@ $scope.createEditOption = 'Edit Report Test Results Form';
         // $scope.menu1[posNew] = $scope.jsonData[0].Criteria[posLoc].OptMenu1;			
 		$scope.Guideline[posNew] = $scope.jsonData[0].Criteria[posLoc].Guideline;		
         $scope.TestResult[posNew] = $scope.jsonData[0].Criteria[posLoc].TestResult;			
+        //BART
+        $scope.TestProcess[posNew] = $scope.jsonData[0].Criteria[posLoc].TestProcess;	
         $scope.TesterComment[posNew] = $scope.jsonData[0].Criteria[posLoc].TesterComment;	
         $scope.location[posNew] = $scope.jsonData[0].Criteria[posLoc].location;        		
 		$scope.ImageSrc[posNew] = $scope.jsonData[0].Criteria[posLoc].ImageSrc;	
@@ -1674,12 +1682,12 @@ $scope.createEditOption = 'Edit Report Test Results Form';
         if($scope.jsonData[0].Criteria[b].Counter== 'undefined') 
 	    $scope.counterCollection[b]= '';
       
-      // KE: for BART - output is correct
-      /* if($scope.jsonData[0].Criteria[b].TestCondition != 'undefined') 	
-      $scope.TestCondition[b] = $scope.jsonData[0].Criteria[b].TestCondition; 
-      alert("test condition [b" + b + "] is " + $scope.TestCondition[b]); */
-      // alert("test condition [i" + i + "] is " + $scope.criteriaTestsJson.Criteria[i].TestCondition);
+      // KE: for BART 
+      if($scope.jsonData[0].Criteria[b].TestProcess != 'undefined') 	
+        $scope.testProcessID[b] = $scope.jsonData[0].Criteria[b].TestProcess; 
+      // alert("test process check id [b" + b + "] is " + $scope.criteriaTestsJson.Criteria[i].TestprocesscheckID);
 
+      
 		
 	    if($scope.jsonData[0].Criteria[b].Guideline != undefined){
 		$scope.guidelinesAdded = true;
@@ -2517,14 +2525,25 @@ $scope.submit = function() {
     //alert("Final Baseline Aligned result is " + $scope.BaselineAligned)
     // alert ('Expected Result ['+i+']='+$scope.criteriaTestsJson.Criteria[i].ExpectedResult + ' and Test Result ['+i+']= ' +$scope.selected_name_tstgrp[i]+ ', then Aligned [' + i + '] = '+ $scope.Aligned[i]);
 
+//KE: for BART - test process check ID
+if ($scope.testProcessID[i] == undefined)
+      $scope.testProcessID[i] = "";
+    $scope.testProcessID[i] = $scope.testProcessID[i].toString().replace(/"/g, "'");
+	$scope.testProcessID[i] = $scope.testProcessID[i].toString().replace(/\n/g, " ");
+
+alert("testProcessID [i" + i + "] is " + $scope.testProcessID[i]);
+//end new feature add
+
+
     // KE: BART JSON output when file is saved
-    $scope.testresult[i] = '{      "XCrtID": "' + $scope.criteriaTestsJson.Criteria[i].CrtID + '",' + 
+        $scope.testresult[i] = '{      "XCrtID": "' + $scope.criteriaTestsJson.Criteria[i].CrtID + '",' + 
     '"TestID": "' + $scope.criteriaTestsJson.Criteria[i].TestID + '",' + 
     '"TestCaseURL": "' + $scope.criteriaTestsJson.Criteria[i].TestCaseURL + '",' + 
     '"TestName": "' + $scope.criteriaTestsJson.Criteria[i].TestName + '",' + 
     '"ExpectedResult": "' + $scope.criteriaTestsJson.Criteria[i].ExpectedResult + '",' + 
     '"IssueNo": "' + i + '",' + 
     '"TestResult": "' + $scope.selected_name_tstgrp[i] + '",' + 
+    '"TestProcess": "' + $scope.testProcessID[i] + '",' + 
     '"TesterComment": "' + $scope.testerCommentID[i] + '",' + 
     '"TestFile": "' + $scope.criteriaTestsJson.Criteria[i].TestFile + '",' + 
     '"TestFileURL": "' + $scope.criteriaTestsJson.Criteria[i].TestFileURL + '",' +
