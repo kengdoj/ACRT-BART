@@ -67,6 +67,7 @@
         "TestFile": "06.3-1-fail-1",
         "TestFileURL": "https://section508coordinators.github.io/baselinealignment/testfiles/TF06/06.3-1-fail-1.html",
         "TestResult": "",
+        "TestProcessCheckID": "",
         "TesterComment": "",
         "Aligned": ""
       },
@@ -79,6 +80,7 @@
         "TestFile": "06.3-2-fail-1",
         "TestFileURL": "https://section508coordinators.github.io/baselinealignment/testfiles/TF06/06.3-2-fail-1.html",
         "TestResult": "",
+        "TestProcessCheckID": "",
         "TesterComment": "",
         "Aligned": ""
       },
@@ -91,6 +93,7 @@
         "TestFile": "10.1-all-pass-1",
         "TestFileURL": "https://section508coordinators.github.io/baselinealignment/testfiles/TF10/10.1-all-pass-1.html",
         "TestResult": "",
+        "TestProcessCheckID": "",
         "TesterComment": "",
         "Aligned": ""
       },
@@ -103,6 +106,7 @@
         "TestFile": "10.1-all-pass-2",
         "TestFileURL": "https://section508coordinators.github.io/baselinealignment/testfiles/TF10/10.1-all-pass-2.html",
         "TestResult": "",
+        "TestProcessCheckID": "",
         "TesterComment": "",
         "Aligned": ""
       },
@@ -115,6 +119,7 @@
         "TestFile": "12.1-2-fail-1",
         "TestFileURL": "https://section508coordinators.github.io/baselinealignment/testfiles/TF12/12.1-2-fail-1.html",
         "TestResult": "",
+        "TestProcessCheckID": "",
         "TesterComment": "",
         "Aligned": ""
       },
@@ -127,6 +132,7 @@
         "TestFile": "12.1-2-fail-2",
         "TestFileURL": "https://section508coordinators.github.io/baselinealignment/testfiles/TF12/12.1-2-fail-2.html",
         "TestResult": "",
+        "TestProcessCheckID": "",
         "TesterComment": "",
         "Aligned": ""
       },
@@ -139,6 +145,7 @@
         "TestFile": "17.5-ic-dna-1",
         "TestFileURL": "https://section508coordinators.github.io/baselinealignment/testfiles/TF17/17.5-ic-dna-1.html",
         "TestResult": "",
+        "TestProcessCheckID": "",
         "TesterComment": "",
         "Aligned": ""
       }

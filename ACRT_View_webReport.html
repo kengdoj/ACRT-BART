@@ -48,7 +48,7 @@
     <li>Sample JSONs with test results are available in the Resources folder: 
       <ul>
         <li>The 'BAT Process3.3_aligned.json' has all of the test process results align with all Baseline Expected Results.</li>
-        <li>The 'Bat Process3.3_notaligned.json' has some test process results that do not align with Baseline Expected Results.</li>
+        <li>The 'Bat Process3.3_notaligned_testids.json' has some test process results that do not align with Baseline Expected Results.</li>
       </ul>
     </li>
 	  <li>To save printer-friendly HTML report, use Alt+S or "Save" button located at bottom of page.</li>		
@@ -245,6 +245,7 @@
                         <th scope="col" id="file[$index]"><div class="widetd3">Test File</div></th>                      
                         <th scope="col" id="baselineresult[$index]"><div class="widetd3">Expected Baseline Test Result</div></th>
                         <th scope="col" id="result[$index]"><div class="widetd3">Test Process's Result Entered</div></th>
+                        <th scope="col" id="process[$index]"><div class="widetd3">Test Process ID Entered</div></th> 
                         <th scope="col" id="cmnt[$index]"><div class="widetd3">Tester Comments Entered</div></th> 
                         <th scope="col" id="align[$index]"><div class="widetd3">Alignment Result</div></th>
                       </tr>
@@ -259,6 +260,7 @@
       <td><div class="widetd3" id="testfile{{$index}}"><a href="{{test.TestFileURL}}" target="testfile">{{test.TestFile}}</a></div></td>
       <td nowrap><div class="widetd3" id="expected{{$index}}">{{test.ExpectedResult}}</div></td>
       <td name="Test Process Result"> <div class="widetd3" id="testresult{{$index}}"> {{TestResult[$index]}}</div></td>
+      <td> <div class="widetd3" id="testprocess{{$index}}">{{TestProcess[$index]}}</div> </td>
       <td> <div class="widetd3" id="testercomment{{$index}}">{{TesterComment[$index]}}</div> </td>
       <td><div class="widetd3" id="aligned{{$index}}">{{test.Aligned}}</div></td>
     </tr>

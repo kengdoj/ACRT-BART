@@ -370,6 +370,7 @@ $scope.countOfRepWords =  function wordFreq(string) {
     $scope.TestFile=[];
     $scope.TestFileURL=[];
     $scope.Aligned=[];
+    $scope.TestProcess=[];
 
 	  $scope.location = [];
       $scope.T_brwsrType = [];
@@ -440,6 +441,7 @@ $scope.countOfRepWords =  function wordFreq(string) {
         $scope.IssueNo[b] = $scope.jsonData[0].Criteria[b].IssueNo;
 		$scope.location[b] = $scope.jsonData[0].Criteria[b].location;
         $scope.TesterComment[b] = $scope.jsonData[0].Criteria[b].TesterComment;
+        $scope.TestProcess[b] = $scope.jsonData[0].Criteria[b].TestProcess;
         $scope.T_brwsrType[b] = $scope.jsonData[0].Criteria[b].T_brwsrType;
         $scope.T_brwsrVrsn[b] = $scope.jsonData[0].Criteria[b].T_brwsrVrsn;
         $scope.ImageSrc[b] = $scope.jsonData[0].Criteria[b].ImageSrc;
@@ -771,6 +773,7 @@ document.getElementById("dsblGrpBtn").click();
       testResult += "<td title=\"Success Criteria\">" + $scope.jsonData[0].Criteria[i].CrtID; + "</td>";
      // testResult += "<td title=\"Test\">" + $scope.jsonData[0].Criteria[i].Test; + "</td>";      
       testResult += "<td title=\"Test Result\">" + $scope.jsonData[0].Criteria[i].TestResult; + "</td>";
+      testResult += "<td title=\"Test Process\">" + $scope.jsonData[0].Criteria[i].TestProcess; + "</td>"; 
 	  testResult += "<td title=\"Tester's comment\">" + $scope.jsonData[0].Criteria[i].TesterComment; + "</td>";
 	  testResult += "<td title=\"Location\">" + $scope.jsonData[0].Criteria[i].location; + "</td>";      
       testResult += "<td title=\"Browser Type\">" + $scope.jsonData[0].Criteria[i].T_brwsrType; + "</td>";
@@ -794,6 +797,7 @@ document.getElementById("dsblGrpBtn").click();
       testResult += "<td title=\"Success Criteria\">" + $scope.jsonData[0].Criteria[i].CrtID; + "</td>";
      // testResult += "<td title=\"Test\">" + $scope.jsonData[0].Criteria[i].Test; + "</td>";      
       testResult += "<td title=\"Test Result\">" + $scope.jsonData[0].Criteria[i].TestResult; + "</td>";
+      testResult += "<td title=\"Test Process\">" + $scope.jsonData[0].Criteria[i].TestProcess; + "</td>";  
 	  testResult += "<td title=\"Tester's comment\">" + $scope.jsonData[0].Criteria[i].TesterComment; + "</td>";
 	  testResult += "<td title=\"Location\">" + $scope.jsonData[0].Criteria[i].location; + "</td>";      
       testResult += "<td title=\"Browser Type\">" + $scope.jsonData[0].Criteria[i].T_brwsrType; + "</td>";
