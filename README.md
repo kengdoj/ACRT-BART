@@ -4,9 +4,17 @@
 
 BART is a browser-based standalone application for recording Baseline for Web Alignment Framework test results. All input data will be stored as JSON &/or html files in the local machine which can be shared as needed. Information in the JSON file can be further manipulated for analytics and reporting purposes as needed. 
 
-BART was developed by modifying the Department of Homeland Security's Accessibility Conformance Reporting Tool (ACRT).
+BART was developed by modifying the Department of Homeland Security's Accessibility Conformance Reporting Tool (ACRT). It is still under development.
 
-BART is in development and further instructions will be provided.
+## Instructions to try BART
+
+1. Download the ACRT files to your local machine from the repository.
+2. Select the Code button above and select "Download ZIP". Once downloaded, unzip/extract files.
+3. Open ACRT_Web_Input_Form.html
+2.	See updated instructions. There is one file with Test IDs already added.
+3.	Switch to View Report and select the file with the Test IDs again.
+
+
 
 <!-- ## Getting Started
 1) Download the ACRT files to your local machine from the repository. The default location is the Downloads folder. On the [main page](https://github.com/Section508Coordinators/ACRT), select the Code button above and select "Download ZIP". Once downloaded, unzip/extract files. 
