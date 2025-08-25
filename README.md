@@ -1,10 +1,15 @@
-# Baseline Alignment Reporting Tool for Web
 
-This tool is under development. It will be part of the [ICT Testing Baseline Alignment Framework](https://baselinealignment.section508.gov).
+# BART 
+# Project Title
+**Baseline Alignement Reporting Tool (BART)** 
 
-This version of the tool will aid in identifying a test methodology's alignment to the [Section ICT Baseline for Web](https://ictbaseline.access-board.gov/web-baselines).
+BART is a browser-based standalone application for recording Baseline for Web Alignment Framework test results. All input data will be stored as JSON &/or html files in the local machine which can be shared as needed.  
 
+BART was developed by modifying the Department of Homeland Security's Accessibility Conformance Reporting Tool (ACRT). It is still under development.
 
+## Instructions to try BART
 
-
-
+1. Select the Code button above and select "Download ZIP".
+3. Once downloaded, unzip/extract files.
+4. Open ACRT_Web_Input_Form.html and follow the provided instructions.
+3.	Use the controls at the top of the pages to navigate the tool.

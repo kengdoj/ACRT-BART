@@ -30,10 +30,10 @@ function IsJsonString(str) {
  
 function expandCollapse1() {
   var x = document.getElementById("expandCollapse1");
-  if (x.innerHTML === "<i class=\"down\"></i> Hide Process Section") {
-    x.innerHTML = "<i class=\"up\"></i> Show Process Section";
+  if (x.innerHTML === "<i class=\"down\"></i> Hide Product Section") {
+    x.innerHTML = "<i class=\"up\"></i> Show Product Section";
   } else {
-    x.innerHTML = "<i class=\"down\"></i> Hide Process Section";
+    x.innerHTML = "<i class=\"down\"></i> Hide Product Section";
   }
 
 }
@@ -364,7 +364,14 @@ $scope.countOfRepWords =  function wordFreq(string) {
       $scope.IssueNo = [];
       $scope.TestResult = [];
       $scope.TesterComment = [];
-      $scope.TestProcess = [];
+    // KE: For BART
+      $scope.ExpectedResult =[];
+    $scope.TestCaseURL=[];
+    $scope.TestFile=[];
+    $scope.TestFileURL=[];
+    $scope.Aligned=[];
+    $scope.TestProcess=[];
+
 	  $scope.location = [];
       $scope.T_brwsrType = [];
       $scope.T_brwsrVrsn = [];
@@ -385,45 +392,39 @@ $scope.countOfRepWords =  function wordFreq(string) {
 	  $scope.dataLoaded = true;
 	  $scope.companyname="";
 	  $scope.counterCollection =[];
-      $scope.productID = $scope.jsonData[0].Process.P_Name;
-      $scope.ownerID = $scope.jsonData[0].Process.P_Owner;
-      $scope.versionID = $scope.jsonData[0].Process.P_Version;
-      $scope.productType = $scope.jsonData[0].Process.P_Type;
-      $scope.urlID = $scope.jsonData[0].Process.P_Location;
-      $scope.flashID = $scope.jsonData[0].Process.P_Flash;
-      $scope.javaID = $scope.jsonData[0].Process.P_java;
-      $scope.prodDescID = $scope.jsonData[0].Process.P_Desc;
-      $scope.prdNteDescID = $scope.jsonData[0].Process.P_Notes;
+      $scope.productID = $scope.jsonData[0].Product.P_Name;
+      $scope.ownerID = $scope.jsonData[0].Product.P_Version;
+      $scope.versionID = $scope.jsonData[0].Product.P_Owner;
+      $scope.productType = $scope.jsonData[0].Product.P_Type;
+      $scope.urlID = $scope.jsonData[0].Product.P_Location;
+      $scope.flashID = $scope.jsonData[0].Product.P_Flash;
+      $scope.javaID = $scope.jsonData[0].Product.P_java;
+      $scope.prodDescID = $scope.jsonData[0].Product.P_Desc;
+      $scope.prdNteDescID = $scope.jsonData[0].Product.P_Notes;
       $scope.compID = $scope.jsonData[0].System.S_Compatibility;
       $scope.myBrowserTested = $scope.jsonData[0].System.S_selectedBrowser;
       $scope.myBrowser = $scope.jsonData[0].System.S_selectedBrowserVersions;
       $scope.myOpsys = $scope.jsonData[0].System.S_osVrsnNo;
       $scope.myOpsysTested = $scope.jsonData[0].System.S_selectedOS;
-      $scope.firstname = $scope.jsonData[0].Submitter.T_fstnm;
-      $scope.lastname = $scope.jsonData[0].Submitter.T_lstnm;
-      $scope.testerID = $scope.jsonData[0].Submitter.T_ID;
-	  $scope.companyname = $scope.jsonData[0].Submitter.T_companyname;
-      $scope.myRole = $scope.jsonData[0].Submitter.T_Role;
-      $scope.testerContact = $scope.jsonData[0].Submitter.T_cntc;
-      $scope.testScope = $scope.jsonData[0].Submitter.T_scope;
-      $scope.evalMethod = $scope.jsonData[0].Submitter.T_eval;
-      $scope.evalMethodVrsn = $scope.jsonData[0].Submitter.T_evalMthd_Vrsn;
-      $scope.dateSubmitted = $scope.jsonData[0].Submitter.T_Date;
+      $scope.firstname = $scope.jsonData[0].Tester.T_fstnm;
+      $scope.lastname = $scope.jsonData[0].Tester.T_lstnm;
+      $scope.testerID = $scope.jsonData[0].Tester.T_ID;
+	  $scope.companyname = $scope.jsonData[0].Tester.T_companyname;
+      $scope.myRole = $scope.jsonData[0].Tester.T_Role;
+      $scope.testerContact = $scope.jsonData[0].Tester.T_cntc;
+      $scope.testScope = $scope.jsonData[0].Tester.T_scope;
+      $scope.evalMethod = $scope.jsonData[0].Tester.T_eval;
+      $scope.evalMethodVrsn = $scope.jsonData[0].Tester.T_evalMthd_Vrsn;
+      $scope.dateSubmitted = $scope.jsonData[0].Tester.T_Date;
       //$scope.Guideline = $scope.jsonData[0].Guideline.Guideline;
       //$scope.Section508 = $scope.jsonData[0].Guideline.Section508;
       //$scope.EN_Accessibility = $scope.jsonData[0].Guideline.EN_Accessibility;
+      
+
       $scope.crtID = $scope.jsonData[0].Criteria[0].CrtID;
 	  $scope.titforImg =[];
 	  $scope.altforImg = [];
-      //KE: BART
-    $scope.baselineAligned = $scope.jsonData[0].BaselineAlignment.BaselineAligned;
-    //alert($scope.baselineAligned);
-    if ($scope.baselineAligned == "No") {
-      document.getElementById("alignmentresult").innerHTML = "<strong>Based on the results for the test cases, "+ $scope.productID + " version " + $scope.versionID +" does not align with the Baseline for Web. </strong>";	
-    } else {
-      document.getElementById("alignmentresult").innerHTML = "<strong>Based on the results for the test cases, "+ $scope.productID + " version " + $scope.versionID +" aligns with the Baseline for Web. </strong>";
-    }
-
+	        
       for (let b = 0; b < $scope.jsonData[0].Criteria.length; b++) {	
        	$scope.noResult[b] = true;         
 		let c=b+1;
@@ -476,7 +477,7 @@ document.getElementById("dsblGrpBtn").click();
 }, 1000);	   
       }
       $scope.impactedGroup = [];
-       document.getElementById("msg1").innerHTML = "<strong>"+$scope.productID+$scope.versionID+".json"+ "</strong> file load completed.<br> To load a different file, <strong>reload</strong> this page.";		  
+       document.getElementById("msg1").innerHTML = "<strong>"+$scope.evalMethod +" Version "+$scope.evalMethodVrsn + " "+$scope.productID+$scope.ownerID+".json"+ "</strong> file load completed.<br> To load a different file, <strong>reload</strong> this page.";		  
         alert('To save printer-friendly HTML report, use Alt+S or Save button at the bottom of the page.');
 	  
 	  //$scope.validData=true;
@@ -637,7 +638,7 @@ document.getElementById("dsblGrpBtn").click();
 	  
 	  
 	  
-	  if($scope.DisabilityImpactCollection.length >0){
+	  /* if($scope.DisabilityImpactCollection.length >0){
 	  $scope.DisabilityImpactCollectionLength = true;
 	  $scope.DisabilityImpactCollection = $scope.DisabilityImpactCollectionString; 
 	  if($scope.isDraft == true)
@@ -649,7 +650,7 @@ document.getElementById("dsblGrpBtn").click();
 	  $scope.DisabilityImpactCollection = 'No One Impacted'; 
 	  if($scope.isDraft == true)
 	 $scope.DisabilityImpactCollection = $scope.DisabilityImpactCollection + '  - Select all  test results to get accurate impacted group';
-	  }
+	  } */
 	  	 
 	  	
 	 /* commented out because we dont want to display duplicate groups based on failed test conditions
@@ -772,7 +773,7 @@ document.getElementById("dsblGrpBtn").click();
       testResult += "<td title=\"Success Criteria\">" + $scope.jsonData[0].Criteria[i].CrtID; + "</td>";
      // testResult += "<td title=\"Test\">" + $scope.jsonData[0].Criteria[i].Test; + "</td>";      
       testResult += "<td title=\"Test Result\">" + $scope.jsonData[0].Criteria[i].TestResult; + "</td>";
-      testResult += "<td title=\"Test Process\">" + $scope.jsonData[0].Criteria[i].TestProcess; + "</td>";  
+      testResult += "<td title=\"Test Process\">" + $scope.jsonData[0].Criteria[i].TestProcess; + "</td>"; 
 	  testResult += "<td title=\"Tester's comment\">" + $scope.jsonData[0].Criteria[i].TesterComment; + "</td>";
 	  testResult += "<td title=\"Location\">" + $scope.jsonData[0].Criteria[i].location; + "</td>";      
       testResult += "<td title=\"Browser Type\">" + $scope.jsonData[0].Criteria[i].T_brwsrType; + "</td>";
@@ -868,22 +869,22 @@ document.getElementById("dsblGrpBtn").click();
 	  " <p>This application was tested according to the Trusted Tester Section 508 Conformance Test method: " + $scope.evalMethod +" "+ $scope.evalMethodVrsn + ". The review may be a sampling of pages to confirm product compliance. The responsibility for full and complete testing and compliance remains with the owner of the application or website.</p>" +
       
 	  "<br><b>Review Date:  &nbsp;  </b>" + $scope.dateSubmitted + "<br>" +
-      "<h2> Process Information </h2>" +
+      "<h2> Product Information </h2>" +
 	  "<input type=\"text\" hidden id=\"isDraftValue\" value=" +  $scope.isDraft+ "> "   + 
-      "<b> Process Name:  &nbsp;  </b>" + $scope.productID + "<br>" +
-      "<b>Process Version:  &nbsp;  </b>" + $scope.ownerID + "<br>" +
-      "<b>Process Owner/Vendor:  &nbsp;  </b>" + $scope.versionID + "<br>" +
-      "<b>Process Type:  &nbsp;  </b>" + $scope.productType + "<br>" +
-      /* "<b>Location:  &nbsp;  </b>" + */ $scope.urlID + "<br>" +
-      "<b>Process Description:  &nbsp;  </b>" + $scope.prodDescID + "<br>" +
+      "<b> Product Name:  &nbsp;  </b>" + $scope.productID + "<br>" +
+      "<b>Product Version:  &nbsp;  </b>" + $scope.ownerID + "<br>" +
+      "<b>Product Owner/Vendor:  &nbsp;  </b>" + $scope.versionID + "<br>" +
+      "<b>Product Type:  &nbsp;  </b>" + $scope.productType + "<br>" +
+      "<b>Location:  &nbsp;  </b>" + $scope.urlID + "<br>" +
+      "<b>Product Description:  &nbsp;  </b>" + $scope.prodDescID + "<br>" +
 	  
-	  "<h2> Submitter's Information </h2>" +
-      "<strong>Submitter's First Name:  &nbsp;  </strong>" + $scope.firstname + "<br>" +
-      "<strong>Submitter's Last Name:  &nbsp;  </strong>" + $scope.lastname + "<br>" +
-      "<strong>Submitter's Title:  &nbsp;  </strong>" + $scope.testerID + "<br>" +
-	  "<strong>Agency Name:  &nbsp;  </strong>" + $scope.companyname + "<br>" +
-      "<strong>Submitter's Email:  &nbsp;  </strong>" + $scope.testerContact + "<br>" +
-      /* "<strong>Notes:  &nbsp;  </strong>" + $scope.testScope + "<br>" +
+	  "<h2> Tester's Information </h2>" +
+      "<strong>Tester's First Name:  &nbsp;  </strong>" + $scope.firstname + "<br>" +
+      "<strong>Tester's Last Name:  &nbsp;  </strong>" + $scope.lastname + "<br>" +
+      "<strong>Trusted Tester ID:  &nbsp;  </strong>" + $scope.testerID + "<br>" +
+	  "<strong>Company Name:  &nbsp;  </strong>" + $scope.companyname + "<br>" +
+      "<strong>Tester's Email:  &nbsp;  </strong>" + $scope.testerContact + "<br>" +
+      "<strong>Notes:  &nbsp;  </strong>" + $scope.testScope + "<br>" +
 
 
       "<h2> Test Environment Information </h2>" +
@@ -891,7 +892,7 @@ document.getElementById("dsblGrpBtn").click();
       "<strong>Browser Version: &nbsp;  </strong>" + $scope.myBrowser + "<br>" +
       "<strong>Compatibility View:  &nbsp;  </strong>" + $scope.compID + "<br>" +
       "<strong>Operating System:  &nbsp;  </strong>" + $scope.myOpsysTested + "<br>" +
-      "<strong>Operating System Version:  &nbsp;  </strong>" + $scope.myOpsys + "<br>" + */
+      "<strong>Operating System Version:  &nbsp;  </strong>" + $scope.myOpsys + "<br>" +
 
       
       "<strong>Testing Method:  &nbsp;  </strong>" + $scope.evalMethod + "<br>" +

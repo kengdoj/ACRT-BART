@@ -317,12 +317,12 @@ i{
 
 
 
-.up {
+.down {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);  
 }
 
-.down {
+.up {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
@@ -474,7 +474,7 @@ fieldset
 
 h2,h3,h4 {font-weight: bold;
        /*padding: 10px;*/
-	   padding-left: 2em;
+	   /* padding-left: 2em; */
        text-align: left;
 	   font-family: "Source Sans Pro", "Franklin Gothic Book","system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";}
 	   
@@ -525,9 +525,9 @@ h2,h3,h4 {font-weight: bold;
 }
 
 /*
-txtarea{
+txtarea
     margin-top: 20px;
-    /*width: 500px;*/
+    
 	height: 75px;   
 	padding: 5px;
 	overflow-y: scroll;
@@ -537,15 +537,27 @@ txtarea{
 */
 
 .txtarea{
-    margin-top: 20px;
+    /* margin-top: 20px; */
     /*width: 500px;*/
 	height: 75px;   
 	padding: 5px;
 	overflow-y: scroll;
-	 
+	vertical-align: top;
 	overflow: scroll; 
 	resize: none;
 	word-wrap: break-word;
+}
+
+.txtarea1{
+  /* margin-top: 20px; */
+  /*width: 500px;*/
+height: 35px;   
+padding: 5px;
+/* overflow-y: scroll; */
+vertical-align: top;
+/* overflow: scroll;  */
+resize: none;
+word-wrap: break-word;
 }
 
 .betnTags{
@@ -596,7 +608,7 @@ table tbody
 
 
 table {
-	/* width: 100%;  */
+	/*width: 70%; */
     /* can be dynamic  */
 	table-layout:fixed; 
 	overflow:auto;
@@ -620,6 +632,7 @@ th
 	font-weight: bold;
 	font-size: 90%;
 	vertical-align: bottom;
+  background-color: rgba(194, 190, 190, 0.801);
 }
 
 tr th {
@@ -630,12 +643,12 @@ td
     /*width: 75px; */
 	border: 1px solid #696969;
     text-align: left;
-    padding: 2px;
+    padding: 3px;
 	font-family: "Source Sans Pro", "Franklin Gothic Book","system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
 	
 	overflow: hidden; 
 	text-overflow: ellipsis; 
-    word-wrap: break-word;
+    /*word-wrap: break-word;*/
 	vertical-align: top;
 
 
@@ -645,6 +658,7 @@ article {
 	padding-right: 20px;
 	
 }
+/* table1 not used in ACRT_Web_Input_Form.html */
 .table1 {
     font-family: arial, sans-serif;
     text-decoration:none;
@@ -660,6 +674,7 @@ article {
 .resultOptions{    
     width: 120px;	
 	display: inline-block;
+  
 	/*font-weight: normal;
 	font-stretch: condensed;
 	font-size: 90%;
@@ -676,9 +691,9 @@ article {
 }
 
 .widetd1{    
-    width: 85px;	
+    width: 36px;	
 	display: inline-block;
-	font-weight: normal;
+	/* font-weight: normal; */
 	font-stretch: condensed;
 	font-size: 90%;
 	vertical-align: top;
@@ -690,7 +705,7 @@ article {
 	display: inline-block;	
 }
 .widetd3{    
-    width: 200px;	
+    width: 150px;	
 	display: inline-block;	
 }
 .widetd4{    
@@ -699,7 +714,7 @@ article {
 	white-space: pre-wrap;
 }
 .widetd5{    
-    width: 105px;	
+    width: 125px;	
 	display: inline-block;	
 }
 .widetd6{    
